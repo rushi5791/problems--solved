@@ -1,1 +1,29 @@
+def mult(a,b,p):
+    prod = (a%p  *  b%p)%p
+    return prod
 
+p = 10**9 + 7
+
+t = int(input())
+max_n = 0
+test_cases = [0]*t
+for case in range(t):
+    n = int(input())
+    max_n = max(n,max_n)
+    test_cases[case] = n
+    
+facts = [1]*(max_n+1)
+prods = [1]*(max_n+1)
+
+
+for i in range(2,len(facts)):
+      facts[i] = mult( facts[i-1],i,p)
+      prods[i] = mult(prods[i-1],facts[i],p)
+      
+      
+for tc in test_cases:
+     print(prods[tc])
+     
+     
+    
+///// modular operator used
