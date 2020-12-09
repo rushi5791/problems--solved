@@ -1,1 +1,35 @@
 
+n= int(input())
+ 
+ //modular 
+prime = 10**9 +7
+
+total= n*(n+1)//2
+
+
+if ((total%2)!=0):
+   print(0)
+   exit(0)
+   
+dp = [0]*(total+1)
+ 
+ 
+ dp[0] = 1
+  
+  
+  for i on range(1,n+1):
+      for j in range(total,i-1,-1):
+           dp[j] = (dp[j]%prime + dp[j-i%prime])%prime
+           
+           
+           
+           
+           
+           
+ans = dp[total//2]
+
+ans =  ((ans%prime)   *  (modin(2)%prime))%prime
+ 
+ print(ans)
+ 
+ //  x^-1 mod p = x^(p-2) mod p
