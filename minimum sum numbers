@@ -1,0 +1,29 @@
+1. numbers which product is strictly greater than given number.
+2. numbers which sum is minimum than given number
+
+
+
+#include<iostream>
+using namespace std;
+int solution(int a)
+{
+int x = sqrt(a);
+if((x*x)>a){
+cout<<x+x<<endl;
+}
+elseif(((x*(x+1))>a){
+cout<<x+x+1<<endl;
+}
+else{
+cout<<x+(x+2)<<endl;
+}
+}
+int main()
+{
+int a;
+cin>>a;
+cout<<solution(a);
+
+
+return 0;
+}
