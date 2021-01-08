@@ -1,0 +1,71 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<limits.h>
+using namespace std;
+
+int main() {
+
+   string str;
+    cin>>str;
+    long int a[26]={0},temp;
+    int i=0;
+    while(str[i]!='\0')
+    {
+    a[str[i]-97]++;
+        i++;
+    }
+    for(i=0;i<26;i++)
+        {
+        if(a[i]!=0)
+            {
+            temp=a[i];
+            break;
+            }
+        }
+    int flag=-1;
+    /*for(i=0;i<26;i++)
+        cout<<a[i]<<" ";
+    cout<<"\n";*/
+    for(i=0;i<26;i++)
+        {
+        if(a[i]!=0)
+            {
+            if(temp-a[i]==1)
+                {
+                if(flag==-1)
+                    flag=0;
+                else
+                    flag=1;
+                if(a[i]!=1)
+                    temp=a[i];
+                }
+            else if(a[i]-temp==1)
+                {
+                if(flag==-1)
+                    flag=0;
+                else
+                    flag=1;
+                if(a[i]!=1)
+                    temp=a[i];
+                }
+            else if(abs(temp-a[i])>1)
+            {
+                if(flag==-1)
+                {
+                   flag=0;
+                    continue;
+                }
+                flag=2;
+               break;
+            }
+        }
+    }
+    if(flag==-1 ||  flag==0)
+            cout<<"YES";
+     else
+          cout<<"NO";
+    return 0;
+}
